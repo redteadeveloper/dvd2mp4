@@ -10,7 +10,12 @@ function test() {
         if (!response.canceled) {
             let dir = response.filePaths[0]
 
-            hbjs.spawn({ input: dir, output: 'output.mp4' })
+            console.log(dir)
+
+            let splitArr = dir.split("\\")
+            let filename = splitArr[splitArr.length-1]
+
+            hbjs.spawn({ input: dir, output: `${filename}.mp4` })
                 .on('error', err => {
                     console.log("Invalid folder selected")
                 })
