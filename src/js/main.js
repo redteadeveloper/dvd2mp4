@@ -12,7 +12,7 @@ function test() {
 
             hbjs.spawn({ input: dir, output: 'output.mp4' })
                 .on('error', err => {
-                    // invalid user input, no video found etc
+                    console.log("Invalid folder selected")
                 })
                 .on('progress', progress => {
                 console.log(progress.percentComplete + "% complete / ETA: " + progress.eta )
