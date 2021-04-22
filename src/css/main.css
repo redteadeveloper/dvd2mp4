@@ -15,18 +15,18 @@
     outline: none !important;
 }
 
-#dirbutton span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-}
-
 #dirbutton:hover {
     background-color: #0C71E0;
     color: #FFFFFF;
     border-radius: 3px;
     border-bottom: 1px solid #0C71E0;
+}
+
+#dirbutton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
 }
 
 #dirbutton span:after {
@@ -42,7 +42,7 @@
     padding-right: 25px;
 }
 
-#dirbutton :hover span:after {
+#dirbutton:hover span:after {
     opacity: 1;
     right: 0;
 }

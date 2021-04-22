@@ -9,11 +9,13 @@
     "handbrake-js": "^5.0.2"
   },
   "devDependencies": {
-    "electron": "^9.0.0"
+    "electron": "^9.0.0",
+    "electron-builder": "^22.10.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder --windows nsis:ia32"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,32 @@
   "bugs": {
     "url": "https://github.com/redteadeveloper/Music-Downloader/issues"
   },
-  "homepage": "https://github.com/redteadeveloper/Music-Downloader#readme"
+  "homepage": "https://github.com/redteadeveloper/Music-Downloader#readme",
+  "build": {
+    "productName": "dvd2mp4",
+    "appId": "com.redtea.dvd2mp4",
+    "asar": true,
+    "protocols": {
+      "name": "dvd2mp4",
+      "schemes": [
+        "dvd2mp4"
+      ]
+    },
+    "win": {
+      "target": [
+        "zip",
+        "nsis"
+      ],
+      "icon": "./src/img/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "directories": {
+      "buildResources": "./resources/installer/",
+      "output": "./dist/",
+      "app": "."
+    }
+  }
 }
