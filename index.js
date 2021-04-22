@@ -7,19 +7,20 @@ let mainWindow
 
 function createWindow() {
     mainWindow = new BrowserWindow({
-        width: 600,
-        height: 200,
+        width: 250,
+        height: 250,
         frame: false,
         transparent: true,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
             preload: path.join(__dirname, 'preload.js')
-        }
+        },
+        resizable: false
     })
 
     mainWindow.loadFile('./src/index.html')
-    mainWindow.webContents.openDevTools();
+    // mainWindow.webContents.openDevTools();
 
     mainWindow.on('closed', function () {
         mainWindow = null

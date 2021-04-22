@@ -3,6 +3,8 @@ const hbjs = require('handbrake-js')
 
 function test() {
 
+    document.getElementById('status').value = "Please select directory"
+
     dialog.showOpenDialog({
         properties: ['openDirectory']
     }).then(function (response) {
@@ -15,12 +17,13 @@ function test() {
             let splitArr = dir.split("\\")
             let filename = splitArr[splitArr.length-1]
 
-            hbjs.spawn({ input: dir, output: `${filename}.mp4` })
-                .on('error', err => {
-                    console.log("Invalid folder selected")
-                })
-                .on('progress', progress => {
-                console.log(progress.percentComplete + "% complete / ETA: " + progress.eta )
+            hbjs.spawn({ input: dir, output: `${dir}\\${filename}.mp4` })
+            .on('error', err => {
+                document.getElementById('status').value = "Invalid folder selected"
+            })
+            .on('progress', progress => {
+                //console.log(progress.percentComplete + "% complete / ETA: " + progress.eta )
+                document.getElementById('status').value = progress.percentComplete + "% complete"
             })
 
         } else {

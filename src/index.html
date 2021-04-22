@@ -3,9 +3,17 @@
   <head>
     <meta charset="UTF-8">
     <script src="./js/main.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <title>dvd2mp4</title>
   </head>
-  <body style="background-color:#32353b; text-align: center; color: #FFFFFF;">
+  <body style="background-color:#FAFAFA; text-align: center; color: #000000;">
     <h1>dvd2mp4</h1>
-    <button type="button" onclick="test()">Open directory</button>
+    <div class="button">
+      <button type="button" id="dirbutton" onclick="test()">Open folder</button>
+      <br><br><br>
+    </div>
+    <div class="status">
+      <input class="status" id="status" disabled type="text" id="status" />
+    </div>
   </body>
 </html>
