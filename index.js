@@ -16,11 +16,11 @@ function createWindow() {
             contextIsolation: false,
             preload: path.join(__dirname, 'preload.js')
         },
-        resizable: false
+        // resizable: false
     })
 
     mainWindow.loadFile('./src/index.html')
-    // mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
 
     mainWindow.on('closed', function () {
         mainWindow = null
